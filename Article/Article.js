@@ -91,6 +91,13 @@ const data = [{
     firstParagraph: 'This is a first Paragraph',
     secondParagraph: 'Now another parapraph titled second',
     thirdParagraph: 'The last one of its Kind'
+  },
+  {
+    title: 'Added Second Title',
+    date: 'Nov 6 2019',
+    firstParagraph: 'Lorem ipsum dolor sit amet.',
+    secondParagraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, iste nihil? Sequi veniam excepturi veritatis sit fugiat quam, praesentium enim?',
+    thirdParagraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eum esse, accusantium'
   }
 ];
 
