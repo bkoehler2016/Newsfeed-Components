@@ -119,7 +119,7 @@ const data = [{
 */
 
 //Create Stucture
-function createComponent(articleInfo) {
+function createArticleComponent(articleInfo) {
   // properties of title, date, firstParagrpah, secondParagraph, thirdParagraph
   const article = document.createElement('div');
   const articleTitle = document.createElement('h2');
@@ -165,5 +165,5 @@ function createComponent(articleInfo) {
 const articles = document.querySelector('.articles');
 
 data.forEach(data => {
-  articles.appendChild(createComponent(data));
+  articles.appendChild(createArticleComponent(data));
 });
