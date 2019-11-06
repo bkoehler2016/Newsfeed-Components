@@ -154,7 +154,6 @@ function createComponent(articleInfo) {
   expandButton.classList.add('expandButton');
 
   // event handler for button
-
   expandButton.addEventListener("click", () => {
     article.classList.toggle('article-open');
     expandButton.textContent = 'Close';
