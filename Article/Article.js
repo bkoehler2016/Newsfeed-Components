@@ -128,6 +128,7 @@ function createArticleComponent(articleInfo) {
   const secondParagraph = document.createElement('p');
   const thirdParagraph = document.createElement('p');
   const expandButton = document.createElement('span');
+  const closeButton = document.createElement('span');
 
 
   //append to DOM
@@ -138,6 +139,7 @@ function createArticleComponent(articleInfo) {
   article.appendChild(secondParagraph);
   article.appendChild(thirdParagraph);
   article.appendChild(expandButton);
+  article.appendChild(closeButton);
 
   // Set Content
   articleTitle.textContent = articleInfo.title;
@@ -145,7 +147,8 @@ function createArticleComponent(articleInfo) {
   firstParagraph.textContent = articleInfo.firstParagraph;
   secondParagraph.textContent = articleInfo.secondParagraph;
   thirdParagraph.textContent = articleInfo.thirdParagraph;
-  expandButton.textContent = 'Expand';
+  expandButton.textContent = 'Read More';
+  closeButton.textContent = 'Read Less';
 
   // Add Classes
 
@@ -156,7 +159,13 @@ function createArticleComponent(articleInfo) {
   // event handler for button
   expandButton.addEventListener("click", () => {
     article.classList.toggle('article-open');
-    expandButton.textContent = 'Close';
+    expandButton.classList = 'hide';
+    closeButton.classList = 'expandButton show';
+  });
+
+  closeButton.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+    closeButton.textContent = 'Read More';
   });
   return article;
 }
