@@ -147,8 +147,8 @@ function createArticleComponent(articleInfo) {
   firstParagraph.textContent = articleInfo.firstParagraph;
   secondParagraph.textContent = articleInfo.secondParagraph;
   thirdParagraph.textContent = articleInfo.thirdParagraph;
-  expandButton.textContent = 'Read More';
-  closeButton.textContent = 'Read Less';
+  expandButton.textContent = 'Expand';
+
 
   // Add Classes
 
@@ -156,17 +156,18 @@ function createArticleComponent(articleInfo) {
   articleDate.classList.add('date');
   expandButton.classList.add('expandButton');
 
+
   // event handler for button
   expandButton.addEventListener("click", () => {
     article.classList.toggle('article-open');
-    expandButton.classList = 'hide';
-    closeButton.classList = 'expandButton show';
+    if (expandButton.textContent == 'Expand') {
+      expandButton.textContent = 'Close';
+    } else {
+      expandButton.textContent = 'Expand';
+    }
   });
 
-  closeButton.addEventListener('click', () => {
-    article.classList.toggle('article-open');
-    closeButton.textContent = 'Read More';
-  });
+
   return article;
 }
 
