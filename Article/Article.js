@@ -1,6 +1,7 @@
 /* This is the data we will be using to create our article components */
 /* Look over this data, then proceed to line 91*/
-const data = [{
+const data = [
+  {
     title: 'Lambda School Students: "We\'re the best!"',
     date: 'Nov 5th, 2018',
     firstParagraph: `Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twi'lek. Ben amidala secura skywalker lando
@@ -96,8 +97,10 @@ const data = [{
     title: 'Added Second Title',
     date: 'Nov 6 2019',
     firstParagraph: 'Lorem ipsum dolor sit amet.',
-    secondParagraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, iste nihil? Sequi veniam excepturi veritatis sit fugiat quam, praesentium enim?',
-    thirdParagraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eum esse, accusantium'
+    secondParagraph:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, iste nihil? Sequi veniam excepturi veritatis sit fugiat quam, praesentium enim?',
+    thirdParagraph:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eum esse, accusantium'
   }
 ];
 
@@ -130,7 +133,6 @@ function createArticleComponent(articleInfo) {
   const expandButton = document.createElement('span');
   const closeButton = document.createElement('span');
 
-
   //append to DOM
 
   article.appendChild(articleTitle);
@@ -149,29 +151,26 @@ function createArticleComponent(articleInfo) {
   thirdParagraph.textContent = articleInfo.thirdParagraph;
   expandButton.textContent = 'Expand';
 
-
   // Add Classes
 
   article.classList.add('article');
   articleDate.classList.add('date');
   expandButton.classList.add('expandButton');
 
-
   // event handler for button
-  expandButton.addEventListener("click", () => {
+  expandButton.addEventListener('click', () => {
     article.classList.toggle('article-open');
-    if (expandButton.textContent == 'Expand') {
+    if (expandButton.innerText === 'Expand') {
       expandButton.textContent = 'Close';
     } else {
       expandButton.textContent = 'Expand';
     }
   });
 
-
   return article;
 }
 
-//ForEach to go over each item. 
+//ForEach to go over each item.
 const articles = document.querySelector('.articles');
 
 data.forEach(data => {

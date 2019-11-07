@@ -73,10 +73,12 @@
   bottom: 0;
   left: 50%;
   font-size: 12px;
-  color: grey;
+  color: white;
   cursor: pointer;
   transform: translate(-50%);
-  background-color: white;
+  background-color: #388E3C;
+  border: 1px solid black;
+  text-align: center;
 }
 .article-open {
   height: 400px;
