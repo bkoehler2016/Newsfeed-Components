@@ -131,7 +131,6 @@ function createArticleComponent(articleInfo) {
   const secondParagraph = document.createElement('p');
   const thirdParagraph = document.createElement('p');
   const expandButton = document.createElement('span');
-  const closeButton = document.createElement('span');
 
   //append to DOM
 
@@ -141,7 +140,6 @@ function createArticleComponent(articleInfo) {
   article.appendChild(secondParagraph);
   article.appendChild(thirdParagraph);
   article.appendChild(expandButton);
-  article.appendChild(closeButton);
 
   // Set Content
   articleTitle.textContent = articleInfo.title;
