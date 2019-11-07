@@ -149,7 +149,7 @@ function createArticleComponent(articleInfo) {
   firstParagraph.textContent = articleInfo.firstParagraph;
   secondParagraph.textContent = articleInfo.secondParagraph;
   thirdParagraph.textContent = articleInfo.thirdParagraph;
-  expandButton.textContent = 'Expand';
+  expandButton.textContent = 'Read More';
 
   // Add Classes
 
@@ -160,10 +160,10 @@ function createArticleComponent(articleInfo) {
   // event handler for button
   expandButton.addEventListener('click', () => {
     article.classList.toggle('article-open');
-    if (expandButton.innerText === 'Expand') {
-      expandButton.textContent = 'Close';
+    if (expandButton.innerText === 'Read More') {
+      expandButton.textContent = 'Read Less';
     } else {
-      expandButton.textContent = 'Expand';
+      expandButton.textContent = 'Read More';
     }
   });
 
