@@ -85,6 +85,22 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'My Own Title',
+    date: 'Nov 5 2019',
+    firstParagraph: 'This is a first Paragraph',
+    secondParagraph: 'Now another parapraph titled second',
+    thirdParagraph: 'The last one of its Kind'
+  },
+  {
+    title: 'Added Second Title',
+    date: 'Nov 6 2019',
+    firstParagraph: 'Lorem ipsum dolor sit amet.',
+    secondParagraph:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, iste nihil? Sequi veniam excepturi veritatis sit fugiat quam, praesentium enim?',
+    thirdParagraph:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eum esse, accusantium'
   }
 ];
 
@@ -93,22 +109,68 @@ const data = [
   <div class="article">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
-
     {three separate paragraph elements}
-
     <span class='expandButton'></span>
   </div>
-
   Hint: You will need to use createElement more than once here!
-
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
-
+  
   Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
-
   Step 3: return the entire component.
-
   Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
-
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
-
 */
+
+//Create Stucture
+function createArticleComponent(articleInfo) {
+  // properties of title, date, firstParagrpah, secondParagraph, thirdParagraph
+  const article = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const firstParagraph = document.createElement('p');
+  const secondParagraph = document.createElement('p');
+  const thirdParagraph = document.createElement('p');
+  const expandButton = document.createElement('span');
+
+  //append to DOM
+
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(firstParagraph);
+  article.appendChild(secondParagraph);
+  article.appendChild(thirdParagraph);
+  article.appendChild(expandButton);
+
+  // Set Content
+  articleTitle.textContent = articleInfo.title;
+  articleDate.textContent = articleInfo.date;
+  firstParagraph.textContent = articleInfo.firstParagraph;
+  secondParagraph.textContent = articleInfo.secondParagraph;
+  thirdParagraph.textContent = articleInfo.thirdParagraph;
+  expandButton.textContent = 'Read More';
+
+  // Add Classes
+
+  article.classList.add('article');
+  articleDate.classList.add('date');
+  expandButton.classList.add('expandButton');
+
+  // event handler for button
+  expandButton.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+    if (expandButton.innerText === 'Read More') {
+      expandButton.textContent = 'Read Less';
+    } else {
+      expandButton.textContent = 'Read More';
+    }
+  });
+
+  return article;
+}
+
+//ForEach to go over each item.
+const articles = document.querySelector('.articles');
+
+data.forEach(data => {
+  articles.appendChild(createArticleComponent(data));
+});
